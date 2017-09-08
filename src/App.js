@@ -9,7 +9,6 @@ class App extends React.Component {
     this.state = {
       txt: "inital text"
     }
-
   }
 
   render(){
@@ -17,7 +16,8 @@ class App extends React.Component {
     return (
       <div>
         <h1>{this.state.txt}</h1>
-        <input type="text" onChange={this.update.bind(this)}/> 
+        <Widget update={this.update.bind(this)} />
+        
       </div>
     )
   }
@@ -28,6 +28,11 @@ class App extends React.Component {
 
 
 }
+
+const Widget = (props) => (
+      <div>
+        <input type="text" onChange={props.update}/> 
+      </div>)
 
 App.propTypes = {
   txt: PropTypes.string.isRequired,
