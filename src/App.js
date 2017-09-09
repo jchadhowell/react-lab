@@ -17,8 +17,8 @@ class App extends React.Component {
       <div>
         <h1>{this.state.txt}</h1>
         <Widget update={this.update.bind(this)} />
-        
-      </div>
+        <Button>I<Heart/>React</Button>
+      </div> 
     )
   }
 
@@ -27,6 +27,16 @@ class App extends React.Component {
   }
 
 
+}
+
+const Button = (props) => (
+  <button> {props.children}</button>
+  )
+
+class Heart extends React.Component {
+  render(){
+    return <span>&hearts;</span>
+  }
 }
 
 const Widget = (props) => (
