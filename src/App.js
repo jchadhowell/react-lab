@@ -18,6 +18,7 @@ class App extends React.Component {
         <h1>{this.state.txt}</h1>
         <Widget update={this.update.bind(this)} />
         <Button>I<Heart/>React</Button>
+        <Title text='The Title'/>
       </div> 
     )
   }
@@ -25,9 +26,17 @@ class App extends React.Component {
   update(e){
     this.setState({txt:e.target.value});
   }
-
-
 }
+
+const Title = (props) =><h1>Title:{props.text}</h1>
+
+Title.propTypes = {
+  text(props, propName, component){
+    if (!(propName in props)){
+      return new Error(`missing ${propName}`)
+    }
+  }
+} 
 
 const Button = (props) => (
   <button> {props.children}</button>
