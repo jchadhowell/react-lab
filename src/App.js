@@ -7,8 +7,10 @@ class App extends React.Component {
     super();
 
     this.state = {
-      txt: "inital text"
+      txt: "inital text",
+      currentEvent: "---"
     }
+    this.update = this.update.bind(this);
   }
 
   render(){
@@ -19,12 +21,24 @@ class App extends React.Component {
         <Widget update={this.update.bind(this)} />
         <Button>I<Heart/>React</Button>
         <Title text='The Title'/>
+        <textarea 
+          onKeyPress={this.update}
+          onCopy = {this.update}
+          onCut = {this.update}
+          onPaste = {this.update}
+          onFocus = {this.update}
+          onBlur = {this.update}
+          onDoubleClick = {this.update}
+          cols="30"
+          rows="10"
+        />
+        <h1>{this.state.currentEvent}</h1>
       </div> 
     )
   }
 
   update(e){
-    this.setState({txt:e.target.value});
+    this.setState({currentEvent:e.type});
   }
 }
 
